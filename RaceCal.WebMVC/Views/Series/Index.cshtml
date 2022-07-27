@@ -1,0 +1,35 @@
+﻿@model IEnumerable<RaceCal.Models.SeriesListItem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table text-light">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.SeriesId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.SeriesId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.SeriesId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

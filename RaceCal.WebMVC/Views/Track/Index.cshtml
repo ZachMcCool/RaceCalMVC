@@ -1,0 +1,90 @@
+﻿@model IEnumerable<RaceCal.Models.TrackListItem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@*
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TrackId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TrackName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedUtc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrackId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrackName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUtc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedUtc)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.TrackId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.TrackId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.TrackId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+*@
+
+<section class="container">
+<div class="row justify-content-evenly">
+@foreach (var item in Model) {
+
+    <div class="card" style="width: 18rem; margin-bottom: 3rem;">
+
+  <div class="card-body">
+    <h4 class="card-title text-dark"> @Html.DisplayFor(modelItem => item.TrackName) </h4>
+    <hr>
+        <h5 class="card-title text-dark"> @Html.DisplayFor(modelItem => item.Location) </h5>
+
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+        <div><strong>@Html.DisplayNameFor(model => model.TrackId)</strong></div>
+        <div>@Html.DisplayFor(modelItem => item.TrackId)</div>    </li>
+  </ul>
+  <div class="card-body">
+    <div>
+                @Html.ActionLink("Edit", "Edit", new { id=item.TrackId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.TrackId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.TrackId })
+    </div>
+  </div>
+</div>
+}
+</div>
+</section>

@@ -1,0 +1,53 @@
+﻿@model RaceCal.Models.Track.TrackEdit
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>TrackEdit</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TrackId" class="control-label"></label>
+                <input readonly asp-for="TrackId" class="form-control" />
+                <span asp-validation-for="TrackId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrackName" class="control-label"></label>
+                <input asp-for="TrackName" class="form-control" />
+                <span asp-validation-for="TrackName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedUtc" class="control-label"></label>
+                <input readonly asp-for="CreatedUtc" class="form-control" />
+                <span asp-validation-for="CreatedUtc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModifiedUtc" class="control-label"></label>
+                <input readonly asp-for="ModifiedUtc" class="form-control" />
+                <span asp-validation-for="ModifiedUtc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

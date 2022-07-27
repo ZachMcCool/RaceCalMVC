@@ -1,0 +1,117 @@
+﻿@model IEnumerable<RaceCal.Models.RaceListItem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New Race</a>
+</p>
+
+@*
+<table class="table">
+
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.RaceTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SeriesTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TrackName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Broadcast)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedUtc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        
+    <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.RaceTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeriesTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrackName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Broadcast)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUtc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedUtc)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.RaceId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.RaceId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.RaceId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+*@
+
+<section class="container">
+<div class="row justify-content-evenly">
+@foreach (var item in Model) {
+
+    <div class="card" style="width: 18rem; margin-bottom: 3rem;">
+
+  <div class="card-body">
+    <h5 class="card-title text-dark"> @Html.DisplayFor(modelItem => item.RaceTime) </h5>
+    <hr>
+        <h4 class="card-title text-dark"> @Html.DisplayFor(modelItem => item.Title) </h4>
+
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+        <div><strong>@Html.DisplayNameFor(model => model.SeriesTitle)</strong></div>
+        <div>@Html.DisplayFor(modelItem => item.SeriesTitle)</div>    </li>
+    <li class="list-group-item">
+        <div><strong>@Html.DisplayNameFor(model => model.TrackName)</strong></div>
+        <div>@Html.DisplayFor(modelItem => item.TrackName)</div>
+        </li>
+        <li class="list-group-item">
+        <div><strong>@Html.DisplayNameFor(model => model.Broadcast)</strong></div>
+        <div>@Html.DisplayFor(modelItem => item.Broadcast)</div>            
+    </li>
+
+  </ul>
+  <div class="card-body">
+    <div>
+                @Html.ActionLink("Edit", "Edit", new { id=item.RaceId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.RaceId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.RaceId })
+    </div>
+  </div>
+</div>
+}
+</div>
+</section>
