@@ -11,6 +11,8 @@ namespace RaceCal.Models
         //public string Content { get; set; }
         [Required]
         [Display(Name = "Race Date and Time")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:D}")]
+
         public DateTime RaceTime { get; set; }
         [Display(Name = "Series")]
         public int SeriesId { get; set; }

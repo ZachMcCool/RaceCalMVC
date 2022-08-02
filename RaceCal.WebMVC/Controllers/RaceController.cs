@@ -54,9 +54,7 @@ namespace RaceCal.WebMVC.Controllers
 
             var races = _raceService.GetRaces();
             return View(races.ToList());
-            //return View(races.ToList()).OrderBy(e => RaceTime);
-            //return DB.Item.OrderByDescending(e => e.ExpiryDate).ToList();
-            //return View(races).OrderByDescending(e => RaceTime).ToList();
+
 
 
         }
@@ -109,7 +107,7 @@ namespace RaceCal.WebMVC.Controllers
         {
             ViewBag.SeriesSelectList = new SelectList(GetSeriesDropDownList(), "SeriesId", "Title");
             ViewBag.TrackSelectList = new SelectList(GetTrackDropDownList(), "TrackId", "TrackName");
-           
+
             if (!SetUserIdInService()) return Unauthorized();
 
 
@@ -119,7 +117,6 @@ namespace RaceCal.WebMVC.Controllers
                 {
                     RaceId = detail.RaceId,
                     Title = detail.Title,
-                    //Content = detail.Content,
                     RaceTime = detail.RaceTime,
                     SeriesId = detail.SeriesId,
                     TrackId = detail.TrackId,

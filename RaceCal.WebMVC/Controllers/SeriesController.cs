@@ -8,13 +8,16 @@ namespace RaceCal.WebMVC.Controllers
 {
     public class SeriesController : Controller
     {
+        private readonly IRaceService _raceService;
         private readonly ISeriesService _seriesService;
-        private readonly Guid _userId;
+        private readonly ITrackService _trackService;
+        //private readonly Guid _userId;
 
-
-        public SeriesController(ISeriesService seriesService)
+        public SeriesController(IRaceService raceService, ISeriesService seriesService, ITrackService trackService)
         {
+            _raceService = raceService;
             _seriesService = seriesService;
+            _trackService = trackService;
         }
 
         //In this method,we will first need to get the User Id as a string from the token -> data from the token is stored
@@ -41,12 +44,13 @@ namespace RaceCal.WebMVC.Controllers
         }
 
         // GET: SeriesController
-        public ActionResult Index()
+        public IActionResult Index()
         {
             if (!SetUserIdInService()) return Unauthorized();
 
-            var series = _seriesService.GetSeries();
-            return View(series.ToList());
+            var serieses = _seriesService.GetSeries();
+            return View(serieses.ToList());
+
         }
 
         public ActionResult Create()
@@ -55,13 +59,15 @@ namespace RaceCal.WebMVC.Controllers
         }
 
         [HttpPost]
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(SeriesCreate model)
         {
             if (!SetUserIdInService()) return Unauthorized();
 
-            if (!ModelState.IsValid) return View(model);
-
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
             if (_seriesService.CreateSeries(model))
             {
                 TempData["SaveResult"] = "Your Series was created.";

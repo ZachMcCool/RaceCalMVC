@@ -3,39 +3,31 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<div class="text-dark text-center" style="width: 100%; height: 100%; background-color:rgba(255, 255, 255, 0.8)">
 
 <h1>Edit</h1>
 
 <h4>RaceEdit</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="row justify-content-center">
+    <div class="col-md-4 mb-3">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @*
             <div class="form-group">
-                <label asp-for="RaceId" class="control-label"></label>
-                <input disabled asp-for="RaceId" class="form-control" />
+                <label asp-for="RaceId" class="control-label" hidden></label>
+                <input asp-for="RaceId" class="form-control" hidden />
                 <span asp-validation-for="RaceId" class="text-danger"></span>
             </div>
-            *@
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
                 <input asp-for="Title" class="form-control" />
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
-         @*   <div class="form-group">
-                <label asp-for="Content" class="control-label"></label>
-                <input asp-for="Content" class="form-control" />
-                <span asp-validation-for="Content" class="text-danger"></span>
-            </div>
-            *@
             <div class="form-group">
                 <label asp-for="RaceTime" class="control-label"></label>
                 <input asp-for="RaceTime" class="form-control" />
                 <span asp-validation-for="RaceTime" class="text-danger"></span>
             </div>
-
             <div class="form-group">
                 <label asp-for="SeriesId" class="control-label"></label>
                 <select asp-for="SeriesId" class="form-control" asp-items="ViewBag.SeriesSelectList"></select>
@@ -46,27 +38,19 @@
                 <select asp-for="TrackId" class="form-control" asp-items="ViewBag.TrackSelectList"></select>
                 <span asp-validation-for="TrackId" class="text-danger"></span>
             </div>
-
-
-
-
-
-
-
-
             <div class="form-group">
                 <label asp-for="Broadcast" class="control-label"></label>
                 <input asp-for="Broadcast" class="form-control" />
                 <span asp-validation-for="Broadcast" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CreatedUtc" class="control-label"></label>
-                <input asp-for="CreatedUtc" class="form-control" />
+                <label asp-for="CreatedUtc" class="control-label" hidden></label>
+                <input asp-for="CreatedUtc" class="form-control" hidden />
                 <span asp-validation-for="CreatedUtc" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ModifiedUtc" class="control-label"></label>
-                <input disabled asp-for="ModifiedUtc" class="form-control" />
+                <label asp-for="ModifiedUtc" class="control-label" hidden></label>
+                <input asp-for="ModifiedUtc" class="form-control" hidden/>
                 <span asp-validation-for="ModifiedUtc" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -78,6 +62,7 @@
 
 <div>
     <a asp-action="Index">Back to List</a>
+</div>
 </div>
 
 @section Scripts {

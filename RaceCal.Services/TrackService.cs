@@ -34,6 +34,7 @@ namespace RaceCal.Services
         public IEnumerable<TrackListItem> GetTracks()
         {
             var query = _ctx.Tracks
+                .OrderBy(x => x.TrackName)
             //.Where(e => e.OwnerId == _userId)
             .Select(e => new TrackListItem
             {

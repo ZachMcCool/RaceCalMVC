@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/RaceCal.WebMVC.styles.css" asp-append-version="true" />
 </head>
-<body class="bg-dark text-light">
-    <header>
+<body class="bg-dark text-light bg-image" 
+     style="background-image: url('https://i.pinimg.com/originals/e5/b9/0a/e5b90ac0f549f5a70dcb05c971cc6ad8.jpg');
+            height: 100%; background-repeat: no-repeat; background-attachment: fixed;">
+     <header>
+        @*
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3 text-light">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RaceCal</a>
@@ -39,6 +42,27 @@
                 </div>
             </div>
         </nav>
+        *@
+
+
+
+
+    <nav class="site-header sticky-top py-1 bg-dark border-bottom">
+  <div class="container d-flex flex-column flex-md-row justify-content-between bg-dark">
+    <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">RaceCal</a>
+
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="race" asp-action="">Races</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="series" asp-action="">Series</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="track" asp-action="">Tracks</a>
+                            <partial name="_LoginPartial" />
+
+
+</nav>
+
+
+
+
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -46,7 +70,8 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+
+    <footer class="border-top footer text-muted bg-dark text-center">
         <div class="container">
             &copy; 2022 - RaceCal.WebMVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>

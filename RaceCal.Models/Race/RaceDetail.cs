@@ -9,6 +9,8 @@
         //[Display(Name = "Race Info")]
         //public string Content { get; set; }
         //[Display(Name = "Race Date and Time")]
+
+
         public DateTime RaceTime { get; set; }
         //[Display(Name = "Race Series")]
         public int SeriesId { get; set; }

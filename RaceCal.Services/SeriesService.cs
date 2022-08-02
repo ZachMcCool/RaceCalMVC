@@ -33,6 +33,7 @@ namespace RaceCal.Services
         public IEnumerable<SeriesListItem> GetSeries()
         {
             var query = _ctx.Serieses
+                .OrderBy(x => x.Title)
             //.Where(e => e.OwnerId == _userId)
             .Select(e => new SeriesListItem
             {

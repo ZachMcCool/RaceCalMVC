@@ -92,16 +92,14 @@ namespace RaceCal.Services
             //using(var _ctx = new ApplicationDbContext())
             {
                 var race = _ctx.Races
-                    .Include("Series")
-                    .Include("Track")
+                    //.Include("Series")
+                    //.Include("Track")
                     .Single(e => e.RaceId == model.RaceId
                     //&& e.OwnerId == _userId
                     );
 
                 race.Title = model.Title;
-                //race.Content = model.Content;
                 race.RaceTime = model.RaceTime;
-                //race.Content = model.Content;
                 race.Broadcast = model.Broadcast;
                 race.SeriesId = model.SeriesId;
                 race.TrackId = model.TrackId;
@@ -115,7 +113,6 @@ namespace RaceCal.Services
         {
             var entity = _ctx.Races
                 .SingleOrDefault(e => e.RaceId == raceId
-                //&& e.OwnerId == _userId
                 );
 
             _ctx.Races.Remove(entity);

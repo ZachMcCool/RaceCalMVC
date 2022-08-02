@@ -10,17 +10,20 @@ namespace RaceCal.Models.Race
         [Display(Name = "Race Info")]
         //public string Content { get; set; }
         //[Display(Name = "Race Date and Time")]
+
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:D}")]
+
         public DateTime RaceTime { get; set; }
         [Display(Name = "Series")]
         public int SeriesId { get; set; }
         //public string SeriesTitle { get; set; }
-        public string SeriesTitle { get; set; }
+        //public string SeriesTitle { get; set; }
 
 
         [Display(Name = "Track")]
         public int TrackId { get; set; }
         //public string TrackName { get; set; }
-        public string TrackName { get; set; }
+        //public string TrackName { get; set; }
 
 
 

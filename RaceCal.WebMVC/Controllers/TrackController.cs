@@ -11,12 +11,16 @@ namespace RaceCal.WebMVC.Controllers
     public class TrackController : Controller
     {
         private readonly ITrackService _trackService;
+        private readonly IRaceService _raceService;
+        private readonly ISeriesService _seriesService;
         //private readonly Guid _userId;
 
 
-        public TrackController(ITrackService trackService)
+        public TrackController(ITrackService trackService, ISeriesService seriesService, IRaceService raceService)
         {
             _trackService = trackService;
+            _raceService = raceService;
+            _seriesService = seriesService;
         }
 
         //In this method,we will first need to get the User Id as a string from the token -> data from the token is stored
